@@ -1,0 +1,24 @@
+---
+title: "MetodosCiPol"
+description: |
+  Herramientas Cuantitativas para el Análisis Político
+  | [CP44] Maestría en Ciencia Política | UNIVERSIDAD TORCUATO DI TELLA |
+site: distill::distill_website
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+
+# Learn more about creating websites with Distill at:
+# https://rstudio.github.io/distill/website.html
+
+# Learn more about publishing to GitHub Pages at:
+# https://rstudio.github.io/distill/publish_website.html#github-pages
+
+```
+
+En su introducción a los conceptos básicos de las ciencias sociales, Jon Elster utilizó la metáfora de [^1] para fundamentar la importancia de entender los engranajes detrás de los fenómenos sociales. Partiendo de esta idea, el taller pretende introducir un conjunto de herramientas para la investigación y el análisis de fenómenos políticos que podrían ser pensados como los lubricantes de las *tuercas y tornillos*.
+
+[^1]: Nuts and Bolts for the Social Science, Cambridge University Press, 1989 / *Tuercas y Tornillos:una introducción a los conceptos básicos de las ciencias sociales; Gedisa, 1990*.
+
+Utilizaremos el entorno de `RStudio` - para el manejo de datos, análisis estadístico e ilustración de resultados-, `RMarkdown` para la presentación de documentos y una variedad de recursos de fácil acceso para mejorar la comunicación del trabajo académico. Tener conocimientos básicos de estadística y comprensión lectora en inglés será de gran ayuda. El curso está pensado para que los participantes tengan una experiencia práctica a través del desarrollo del programa.

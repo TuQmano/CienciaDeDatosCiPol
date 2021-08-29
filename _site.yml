@@ -1,0 +1,31 @@
+name: "MetodosCiPol"
+title: "MetodosCiPol"
+description: |
+  Herramientas Cuantitativas para el Análisis Político
+output_dir: "docs"
+include: ["sesiones/", "2020"]
+navbar:
+  navbar:
+  logo:
+    image: https://www.utdt.edu/Images/ui2014/logo.png
+    href: https://www.utdt.edu
+  left:
+    - text: "Software"
+      href: software.html
+    - text: "Datos"
+      href: datos.html
+    - text: "Biblio"
+      href: biblio.html
+  right:
+    - text: "Sobre este curso"
+      href: about.html
+    - text: "Ediciones Anteriores"
+      menu:
+      - text: "2020"
+        href: https://tuqmano.github.io/MetodosCiPol/2020/
+      - text: "2019"
+        href: https://es.overleaf.com/read/bngtnznxczjq
+      - text: "2018"
+        href: https://github.com/TuQmano/Metodos_UTDT/blob/master/metodos_UTDT.pdf
+      
+output: distill::distill_article

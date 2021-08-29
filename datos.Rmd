@@ -1,0 +1,71 @@
+---
+title: "Acceso a Datos"
+description: |
+  Colección de paquetes de R que facilitan el acceso a datos
+site: distill::distill_website
+---
+
+# DATOS. 
+
+## *universo* `polAr`
+
+## 
+
+```{r, echo=FALSE}
+
+knitr::include_graphics("https://github.com/PoliticaArgentina/data_warehouse/raw/master/hex/collage.png")
+
+```
+
+`{opinAr}` brinda herramientas que facilitan el acceso y el trabajo con datos de opinión del Índice de Confianza en el Gobierno (ICG), relevados por la Universidad Torcuato Di Tella.
+
+`{geoAr}` brinda herramientas que facilitan el acceso y el trabajo con datos espaciales de Argentina desde `R`.
+
+`{legislAr}` está pensado para facilitar la exploración de datos compartidos por Andy Tow en su proyecto [*La Década Votada*](https://andytow.com/scripts/disciplina/index-d.html) en cuya [documentación](https://andytow.com/scripts/disciplina/doc.html) se detallan las bases de datos disponibilizadas, sus campos y descripciones.
+
+`{discursAr}` es una herramientas para el análisis de `discurs`os políticos de `Ar`rgentina usando `R`
+
+`{electorAr}` brinda herramientas que facilitan el acceso y el trabajo con datos electorales de Argentina desde `R`.
+
+```{r}
+# devtools::install_github("politicaargentina/polArverse")
+
+library(polArverse)
+#> -- Attaching packages ------------------------------------- polArverse0.0.1.0 --
+#> v geoAr     0.0.1.0     v electorAr 0.0.1.0
+#> v legislAr  0.0.1.0     v discursAr 0.0.1.0
+#> v opinAr    0.0.1
+
+
+
+```
+
+## OTROS
+
+`{politicxsentwitteR}`sirve para descargar data en real time de la aplicación de ["Políticos/as on Twitter"](https://oderedes.shinyapps.io/politicosentwitter/) usando R.
+
+### Socio Económicos
+
+[{eph}](https://holatam.github.io/eph/): Caja de Herramientas para el procesamiento de la Encuesta Permanente de Hogares.
+
+[{transporteAR}](https://github.com/juanifulponi/transporteAR): Base de datos de subsidios y compensasiones al transporte público de la República Argentina.
+
+[{PortalHacienda-CRAN}](https://github.com/fmgarciadiaz/PortalHacienda-CRAN): acceso a la API del Portal del Ministerio de Hacienda de Argentina.
+
+### DD.HH.
+
+[{presentes}](https://diegokoz.github.io/presentes/index.html): poner a disposición la información oficial sobre víctimas del terrorismo de estado en Argentina.
+
+### GEO
+
+[{geofaceteAR}](https://electorarg.github.io/geofaceteAR/): Códigos geográficos de Argentina y grillas para visulaización de datos *como si fueran mapas* (una versión ampliada del trabajo con información geográfica fue incorporada en `{geoAr}`).
+
+[{gegorefar}](https://github.com/pdelboca/georefar): paquete de R que implementa un wrapper para la API georef-ar. La API del Servicio de Normalización de Datos Geográficos, permite normalizar y codificar los nombres de unidades territoriales de la Argentina (provincias, departamentos, municipios y localidades) y de sus calles, así como ubicar coordenadas dentro de ellas.
+
+[{RUMBA}](https://github.com/bitsandbricks/RUMBA): Un conjunto de herramientas para analizar la Región Urbana Metropolitana de Buenos Aires usando R.
+
+### R para Ciencia de Datos - Comunidad Ñ
+
+[{DATOS}](https://cienciadedatos.github.io/datos/): provee la traducción al español de conjuntos de datos en inglés originalmente disponibles en otros paquetes de R.
+
+[\#DatosDeMiercoles](https://github.com/cienciadedatos/datos-de-miercoles): Datos de miércoles es el primo latinoamericano de \#tidytuesday, un proyecto semanal de datos organizado por la comunidad de R.
