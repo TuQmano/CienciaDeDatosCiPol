@@ -2,8 +2,17 @@
 title: "MetodosCiPol"
 description: |
   Herramientas Cuantitativas para el Análisis Político
-  | [CP44] Maestría en Ciencia Política | UNIVERSIDAD TORCUATO DI TELLA |
+  | [CP44] Maestría en Ciencia Política | UNIVERSIDAD TORCUATO DI TELLA | 
 site: distill::distill_website
+repository_url: https://github.com/tuqmano/CienciaDeDatosCiPol
+creative_commons: CC BY-NC
+author:
+  - first_name: "Juan Pablo"
+    last_name: "Ruiz Nicolini"
+    url: https://github.com/yihui
+    affiliation: github.com/PoliticaArgentina
+    affiliation_url: https://github.com/PoliticaArgentina
+    orcid_id: 0000-0002-3138-6343
 ---
 
 ```{r setup, include=FALSE}

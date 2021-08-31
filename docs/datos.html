@@ -2069,7 +2069,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <a href="biblio.html">Biblio</a>
 </div>
 <div class="nav-right">
-<a href="about.html">Sobre este curso</a>
+<span class="nav-dropdown-header">Clases</span>
 <div class="nav-dropdown">
 <button class="nav-dropbtn">
 Ediciones Anteriores
@@ -2099,17 +2099,18 @@ Ediciones Anteriores
 
 
 <div class="d-article">
-<h1 id="datos.">DATOS.</h1>
+<h1 id="datos">DATOS</h1>
 <h2 id="universo-polar"><em>universo</em> <code>polAr</code></h2>
-<h2 id="section"></h2>
 <div class="layout-chunk" data-layout="l-body">
 <p><img src="https://github.com/PoliticaArgentina/data_warehouse/raw/master/hex/collage.png" /><!-- --></p>
 </div>
 <p><code>{opinAr}</code> brinda herramientas que facilitan el acceso y el trabajo con datos de opinión del Índice de Confianza en el Gobierno (ICG), relevados por la Universidad Torcuato Di Tella.</p>
 <p><code>{geoAr}</code> brinda herramientas que facilitan el acceso y el trabajo con datos espaciales de Argentina desde <code>R</code>.</p>
-<p><code>{legislAr}</code> está pensado para facilitar la exploración de datos compartidos por Andy Tow en su proyecto <a href="https://andytow.com/scripts/disciplina/index-d.html"><em>La Década Votada</em></a> en cuya <a href="https://andytow.com/scripts/disciplina/doc.html">documentación</a> se detallan las bases de datos disponibilizadas, sus campos y descripciones.</p>
+<p><code>{legislAr}</code> está pensado para facilitar la exploración de datos compartidos por Andy Tow en su proyecto <a href="https://andytow.com/scripts/disciplina/index-d.html">La Decada Votada</a> en cuya <a href="https://andytow.com/scripts/disciplina/doc.html">documentación</a> se detallan las bases de datos disponibilizadas, sus campos y descripciones.</p>
 <p><code>{discursAr}</code> es una herramientas para el análisis de <code>discurs</code>os políticos de <code>Ar</code>rgentina usando <code>R</code></p>
 <p><code>{electorAr}</code> brinda herramientas que facilitan el acceso y el trabajo con datos electorales de Argentina desde <code>R</code>.</p>
+<h1 id="instalar-paquetes-del-polarverse-desde-github">Instalar paquetes del polArverse desde <code>github</code></h1>
+<p><em>Ejemplo para instalar todos juntos</em></p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='co'># devtools::install_github("politicaargentina/polArverse")</span>
@@ -2122,6 +2123,20 @@ Ediciones Anteriores
 </code></pre>
 </div>
 </div>
+<h1 id="instalar-paquetes-desde-tuqmano.r-universe.dev">Instalar paquetes desde <a href="https://tuqmano.r-universe.dev/"><code>tuqmano.r-universe.dev</code></a></h1>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='co'># Habilitar el tuqmano universe (además de CRAN)</span>
+
+<span class='fu'><a href='https://rdrr.io/r/base/options.html'>options</a></span><span class='op'>(</span>repos <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span>
+    tuqmano <span class='op'>=</span> <span class='st'>'https://tuqmano.r-universe.dev'</span>,
+    CRAN <span class='op'>=</span> <span class='st'>'https://cloud.r-project.org'</span><span class='op'>)</span><span class='op'>)</span>
+
+<span class='co'># Instalar un paquete de la forma habitual</span>
+<span class='fu'><a href='https://rdrr.io/r/utils/install.packages.html'>install.packages</a></span><span class='op'>(</span><span class='st'>'geoAr'</span><span class='op'>)</span>
+</code></pre>
+</div>
+</div>
 <h2 id="otros">OTROS</h2>
 <p><code>{politicxsentwitteR}</code>sirve para descargar data en real time de la aplicación de <a href="https://oderedes.shinyapps.io/politicosentwitter/">“Políticos/as on Twitter”</a> usando R.</p>
 <h3 id="socio-económicos">Socio Económicos</h3>
@@ -2131,7 +2146,7 @@ Ediciones Anteriores
 <h3 id="dd.hh.">DD.HH.</h3>
 <p><a href="https://diegokoz.github.io/presentes/index.html">{presentes}</a>: poner a disposición la información oficial sobre víctimas del terrorismo de estado en Argentina.</p>
 <h3 id="geo">GEO</h3>
-<p><a href="https://electorarg.github.io/geofaceteAR/">{geofaceteAR}</a>: Códigos geográficos de Argentina y grillas para visulaización de datos <em>como si fueran mapas</em> (una versión ampliada del trabajo con información geográfica fue incorporada en <code>{geoAr}</code>).</p>
+<p><a href="https://electorarg.github.io/geofaceteAR/">{geofaceteAR}</a>: Códigos geográficos de Argentina y grillas para visulaización de datos <em>como si fueran mapas</em> (una versión ampliada del trabajo con información geogrÃ¡fica fue incorporada en <code>{geoAr}</code>).</p>
 <p><a href="https://github.com/pdelboca/georefar">{gegorefar}</a>: paquete de R que implementa un wrapper para la API georef-ar. La API del Servicio de Normalización de Datos Geográficos, permite normalizar y codificar los nombres de unidades territoriales de la Argentina (provincias, departamentos, municipios y localidades) y de sus calles, así como ubicar coordenadas dentro de ellas.</p>
 <p><a href="https://github.com/bitsandbricks/RUMBA">{RUMBA}</a>: Un conjunto de herramientas para analizar la Región Urbana Metropolitana de Buenos Aires usando R.</p>
 <h3 id="r-para-ciencia-de-datos---comunidad-ñ">R para Ciencia de Datos - Comunidad Ñ</h3>

@@ -5,11 +5,9 @@ description: |
 site: distill::distill_website
 ---
 
-# DATOS. 
+# DATOS
 
 ## *universo* `polAr`
-
-## 
 
 ```{r, echo=FALSE}
 
@@ -21,11 +19,15 @@ knitr::include_graphics("https://github.com/PoliticaArgentina/data_warehouse/raw
 
 `{geoAr}` brinda herramientas que facilitan el acceso y el trabajo con datos espaciales de Argentina desde `R`.
 
-`{legislAr}` está pensado para facilitar la exploración de datos compartidos por Andy Tow en su proyecto [*La Década Votada*](https://andytow.com/scripts/disciplina/index-d.html) en cuya [documentación](https://andytow.com/scripts/disciplina/doc.html) se detallan las bases de datos disponibilizadas, sus campos y descripciones.
+`{legislAr}` está pensado para facilitar la exploración de datos compartidos por Andy Tow en su proyecto [La Decada Votada](https://andytow.com/scripts/disciplina/index-d.html) en cuya [documentación](https://andytow.com/scripts/disciplina/doc.html) se detallan las bases de datos disponibilizadas, sus campos y descripciones.
 
 `{discursAr}` es una herramientas para el análisis de `discurs`os políticos de `Ar`rgentina usando `R`
 
 `{electorAr}` brinda herramientas que facilitan el acceso y el trabajo con datos electorales de Argentina desde `R`.
+
+# Instalar paquetes del polArverse desde `github`
+
+*Ejemplo para instalar todos juntos*
 
 ```{r}
 # devtools::install_github("politicaargentina/polArverse")
@@ -36,6 +38,22 @@ library(polArverse)
 #> v legislAr  0.0.1.0     v discursAr 0.0.1.0
 #> v opinAr    0.0.1
 
+
+
+```
+
+# Instalar paquetes desde [`tuqmano.r-universe.dev`](https://tuqmano.r-universe.dev/)
+
+```{r, eval = FALSE}
+
+# Habilitar el tuqmano universe (además de CRAN)
+
+options(repos = c(
+    tuqmano = 'https://tuqmano.r-universe.dev',
+    CRAN = 'https://cloud.r-project.org'))
+
+# Instalar un paquete de la forma habitual
+install.packages('geoAr')
 
 
 ```
@@ -58,7 +76,7 @@ library(polArverse)
 
 ### GEO
 
-[{geofaceteAR}](https://electorarg.github.io/geofaceteAR/): Códigos geográficos de Argentina y grillas para visulaización de datos *como si fueran mapas* (una versión ampliada del trabajo con información geográfica fue incorporada en `{geoAr}`).
+[{geofaceteAR}](https://electorarg.github.io/geofaceteAR/): Códigos geográficos de Argentina y grillas para visulaización de datos *como si fueran mapas* (una versión ampliada del trabajo con información geogrÃ¡fica fue incorporada en `{geoAr}`).
 
 [{gegorefar}](https://github.com/pdelboca/georefar): paquete de R que implementa un wrapper para la API georef-ar. La API del Servicio de Normalización de Datos Geográficos, permite normalizar y codificar los nombres de unidades territoriales de la Argentina (provincias, departamentos, municipios y localidades) y de sus calles, así como ubicar coordenadas dentro de ellas.
 

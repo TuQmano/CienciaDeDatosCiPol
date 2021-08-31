@@ -17,8 +17,8 @@ navbar:
     - text: "Biblio"
       href: biblio.html
   right:
-    - text: "Sobre este curso"
-      href: about.html
+    - text: "Clases"
+      menu:
     - text: "Ediciones Anteriores"
       menu:
       - text: "2020"
