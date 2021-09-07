@@ -60,7 +60,7 @@ install.packages('geoAr')
 
 ## OTROS
 
-`{politicxsentwitteR}`sirve para descargar data en real time de la aplicación de ["Políticos/as on Twitter"](https://oderedes.shinyapps.io/politicosentwitter/) usando R.
+`{politicxsentwitteR}` sirve para descargar data en tiempo real de la aplicación de ["Políticos/as on Twitter"](https://oderedes.shinyapps.io/politicosentwitter/) usando R.
 
 ### Socio Económicos
 

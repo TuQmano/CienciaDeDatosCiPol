@@ -9,8 +9,8 @@ creative_commons: CC BY-NC
 author:
   - first_name: "Juan Pablo"
     last_name: "Ruiz Nicolini"
-    url: https://github.com/yihui
-    affiliation: github.com/PoliticaArgentina
+    url: https://tuqmano.ar/
+    affiliation: PoliticaArgentina
     affiliation_url: https://github.com/PoliticaArgentina
     orcid_id: 0000-0002-3138-6343
 ---
