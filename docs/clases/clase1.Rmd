@@ -124,7 +124,7 @@ MACHETE:
 
 ```
 *  Juana Pérez
-*  Arquitecta
+*  Sociologa
 *  UNR / Rosario, Santa Fe
 *  Excel / SPSS / Stata
 *  Sindicatos y Mov. Sociales
@@ -134,6 +134,7 @@ MACHETE:
 
 
 ---
+class: inverse 
 
 # Historia de R
 
@@ -159,6 +160,10 @@ MACHETE:
 --
 
 * 2020: 4.0V
+
+--
+
+* [*ULTIMO*](https://cran.r-project.org/): _R-4.1.1 - 2021-08-10, Kick Things_
 
 ---
 
@@ -190,6 +195,7 @@ MACHETE:
 
 
 ---
+class: inverse 
 
 # Curso
 
@@ -231,7 +237,7 @@ background-size: 10%
 ## _**Tablero de control** (IDE)_
 
 
-```{r rstudio, echo=F, out.width="100%"}
+```{r rstudio, echo=F, out.width="95%"}
 knitr::include_graphics("https://arcruz0.github.io/libroadp/00-images/basic-r/rstudio.png")
 ```
 
@@ -259,5 +265,24 @@ class: inverse
 
  - [_Happy Git and GitHub for the useR_](https://happygitwithr.com/)
 
+---
+
+class: inverse, center, middle
+
+.pull-left[
+
+ # [Dataviz and the 20th Anniversary of R, an Interview With Hadley Wickham](https://medium.com/nightingale/dataviz-and-the-20th-anniversary-of-r-an-interview-with-hadley-wickham-ea245078fc8a)
+
+]
+
+--
+
+# _**cholulo alert**_
+.pull-right[
+```{r echo=FALSE}
+knitr::include_graphics("https://www.tuqmano.com/slides/polar_slides_files/img-manual/hw.PNG")
+```
 
 
+
+]

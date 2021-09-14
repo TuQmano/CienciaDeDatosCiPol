@@ -30,5 +30,5 @@ navbar:
       - text: "2018"
         href: https://github.com/TuQmano/Metodos_UTDT/blob/master/metodos_UTDT.pdf
     - icon: fab fa-github
-      href: https://github.com/tuqmano/geo_utdt
+      href: https://github.com/tuqmano/CienciaDeDatosCiPol
 output: distill::distill_article
