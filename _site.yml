@@ -3,7 +3,7 @@ title: "MetodosCiPol"
 description: |
   Herramientas Cuantitativas para el Análisis Político
 output_dir: "docs"
-include: ["sesiones/", "2020"]
+include: ["clases", "2020", "clases"]
 navbar:
   navbar:
   logo:
@@ -16,9 +16,11 @@ navbar:
       href: datos.html
     - text: "Biblio"
       href: biblio.html
-  right:
     - text: "Clases"
       menu:
+      - text: "Clase 1"
+        href: https://tuqmano.github.io/CienciaDeDatosCiPol/clases/clase1.html
+  right:
     - text: "Ediciones Anteriores"
       menu:
       - text: "2020"
@@ -27,5 +29,6 @@ navbar:
         href: https://es.overleaf.com/read/bngtnznxczjq
       - text: "2018"
         href: https://github.com/TuQmano/Metodos_UTDT/blob/master/metodos_UTDT.pdf
-      
+    - icon: fab fa-github
+      href: https://github.com/tuqmano/geo_utdt
 output: distill::distill_article
