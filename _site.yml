@@ -14,12 +14,17 @@ navbar:
       href: software.html
     - text: "Datos"
       href: datos.html
+    - text: "Programa"
+      href: programa.html
     - text: "Biblio"
       href: biblio.html
     - text: "Clases"
       menu:
       - text: "Clase 1"
         href: https://tuqmano.github.io/CienciaDeDatosCiPol/clases/clase1.html
+      - text: "Clase 2"
+        href: https://tuqmano.github.io/CienciaDeDatosCiPol/clases/clase2.html
+
   right:
     - text: "Ediciones Anteriores"
       menu:
