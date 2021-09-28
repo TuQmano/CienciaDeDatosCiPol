@@ -245,7 +245,7 @@ background-position: 95% 5%
 background-size: 10%
 
 
-## El nÃºcelo _Tidyverse_
+##  El nucleo _Tidyverse_
 
 ```{r tidy_hex, echo=FALSE, fig.retina=3, out.width= "60%"}
 knitr::include_graphics("https://github.com/TuQmano/MetodosCiPol/blob/master/docs/2020/Clase02/fig/tidy_hex.PNG?raw=true")
