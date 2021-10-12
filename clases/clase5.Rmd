@@ -1,0 +1,599 @@
+---
+title: "Herramientas Cuantitativas para el Análisis Político"
+subtitle: "Maestría en Ciencia Política [CP44]"
+author: ""
+institute: "Universidad Torcuato Di Tella"
+date: "12/10/2021"
+output:
+  xaringan::moon_reader:
+    css: ["footer-header.css", "styles.css"]
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      highlightSpans: true
+      countIncrementalSlides: false
+---
+
+layout: true
+  
+<div class="my-footer"><span>Juan Pablo Ruiz Nicolini | @TuQmano | <a href="https://tuqmano.ar/">www.tuqmano.ar</a></span></div> 
+
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+knitr::opts_chunk$set(collapse = TRUE,
+                      fig.retina = 3,
+                      cache = TRUE,
+                      warning = FALSE,
+                      message = FALSE)
+```
+
+
+```{r xaringan, include=FALSE}
+xaringanExtra::use_xaringan_extra(c("tile_view", "animate_css", "tachyons", "extra_styles", "scribble", "editable", "broadcast", "webcam"))
+```
+
+```{r extrasXaringan, echo=FALSE}
+xaringanExtra::use_extra_styles(
+  hover_code_line = TRUE,         #<<
+)
+xaringanExtra::use_progress_bar(color = "#fdbd15", location = "top")
+```
+
+
+---
+class: inverse, center, middle
+
+# REPASO
+
+
+---
+
+##  Ciencia de Datos - Domar Datos
+
+```{r wrangle, echo=F, out.width="100%"}
+knitr::include_graphics("https://es.r4ds.hadley.nz/diagrams_w_text_as_path/es/data-science-wrangle.svg")
+```
+
+
+`r icon::fa("link")` [R para Ciencia de Datos - R4DS](https://es.r4ds.hadley.nz)
+
+
+---
+
+background-image: url(https://github.com/TuQmano/hex-stickers/raw/master/PNG/tidyr.png)
+background-position: 95% 5%
+background-size: 10%
+
+# Domar los datos I
+
+## Datos Ordenados
+
+
+```{r tidy_data, echo = F, out.width='80%'}
+knitr::include_graphics("https://es.r4ds.hadley.nz/diagrams_w_text_as_path/es/tidy-1.svg")
+```
+
+
+1. Cada variable debe tener su propia columna.
+
+2. Cada observación debe tener su propia fila.
+
+3. Cada valor debe tener su propia celda.
+
+
+---
+
+background-image: url(https://github.com/TuQmano/hex-stickers/raw/master/PNG/tidyr.png)
+background-position: 95% 5%
+background-size: 10%
+
+# Domar los datos I
+
+## Datos Ordenados: _pivotear_
+
+Entre los distintos verbos, se destacan: 
+
+* `pivot_longer()`: reduce cantidad de columnas y aumenta las filas
+
+* `pivot_wider()`: reduce cantidad de filas y aumenta columnas
+
+### Más verbos: 
+
+`complete / fill / replace_na / drop_na`,
+
+`nest / unnest`, 
+
+`unite /separate / extract`
+
+[`r icon::fa("link")``{tidyr}`](https://tidyr.tidyverse.org/)
+
+---
+
+background-image: url(https://github.com/TuQmano/hex-stickers/raw/master/PNG/dplyr.png)
+background-position: 95% 5%
+background-size: 10%
+
+# Domar los datos I
+
+## Transformar
+
+### Una caja de herramientas
+
+#### Verbos principales de `{dplyr}` para manipular la _data_
+
+* `filter()`: reduce la cantidad de filas  (observaciones)
+
+* `select()`: reduce la cantidad de columnas (variables)
+
+* `mutate()`: crea o modifica variables 
+
+* `arrange()`: ordena (sort)
+
+* `group_by()`: agrupa observaciones
+
+* `summarize()`: reduce múltiples observaciones a un valor
+
+---
+
+background-image: url(https://www.tidyverse.org/blog/2020/06/dplyr-1-0-0/dplyr.png)
+background-position: 95% 5%
+background-size: 10%
+
+# Domar los datos I
+
+## + verbos de `{dplyr}`
+
+
+
+* `n()`
+
+* `slice()` (y variantes:  `slice_*()`)
+
+* `rename()`
+
+* `case_when()` (re versión de `ifelse()`)
+
+* Variantes de `mutate_*()` y `summarise_*()`
+
+  -  `across()` en el [*nuevo* `{dplyr}` `r icon::fa("link")`](https://www.tidyverse.org/blog/2020/06/dplyr-1-0-0/) 
+
+
+
+---
+
+background-image: url(https://www.tidyverse.org/blog/2020/06/dplyr-1-0-0/dplyr.png)
+background-position: 95% 5%
+background-size: 10%
+
+
+## Datos relacionales 
+
+.pull-left[
+```{r joinsGIF, echo = FALSE}
+knitr::include_graphics("https://www.garrickadenbuie.com/project/tidyexplain/images/left-join-extra.gif")
+```
+
+
+[`r icon::fa("link")` Tidy Explain, Garrick Aden-Buie](https://www.garrickadenbuie.com/project/tidyexplain/)
+
+]
+
+.pull-right[
+
+* Uniones de transformación (del inglés _mutating joins_), que agregan nuevas variables a un data frame a partir de las observaciones coincidentes en otra tabla (*vg* `left_join()`)
+
+* Uniones de filtro (del inglés _filtering joins_), que filtran observaciones en un _data frame_ con base en si coinciden o no con una observación de otra tabla (*vg* `anti_join()`).
+
+* Operaciones de conjuntos (del inglés _set operations_), que tratan las observaciones como elementos de un conjunto (*vg* `set_diff()`).
+
+
+`r icon::fa("link")` [Datos Relacionales - R4DS](https://es.r4ds.hadley.nz/datos-relacionales.html)
+
+]
+
+
+---
+class: inverse, middle, center
+
+# Domar los Datos
+### (II Parte) 
+
+---
+
+
+background-image: url(https://github.com/rstudio/hex-stickers/raw/master/PNG/stringr.png)
+background-position: 95% 5%
+background-size: 10%
+
+# Domar los datos II
+
+## Caracteres 
+
+
+* Funciones que permiten manipular caracteres individuales dentro de las cadenas en vectores de caracteres
+
+**`str_sub(string = x, start = 1, end = 4)`**
+
+
+* Herramientas para agregar, eliminar y manipular espacios en blanco
+
+**`str_pad(string = x , width = 2 , side = "left" , pad = 0)`**
+
+
+* Funciones que detectan coincidencia de patrones como  las _expresiones regulares_ -[_regex_ ](https://stringr.tidyverse.org/articles/regular-expressions.html) `r icon::fa("link")`:
+
+
+**`str_detect(string = x, pattern = ":digits:")`**
+
+
+[`r icon::fa("link")``{stringr}`](https://stringr.tidyverse.org/articles/stringr.html)
+
+---
+background-image: url(https://github.com/rstudio/hex-stickers/raw/master/PNG/lubridate.png)
+background-position: 95% 5%
+background-size: 10%
+
+# Domar los datos II
+
+## Días y horas
+
+`{lubridate}` incluye una gran variedad de funciones para **(a) *paresear* días y horas**; **(b) crear y extraer información**; (c) manejar zonas horarias (_tz_); y hasta calcular intervalos de tiempo y _aritmética de tiempo_
+
+```{r, echo = TRUE}
+library(lubridate) # (a)
+dmy("5 de octubre de 2021")
+```
+
+
+```{r, echo = TRUE}
+library(lubridate) # (b)
+today() + 365
+```
+
+
+[`r icon::fa("link")``{lubridate}`](https://lubridate.tidyverse.org/index.html)
+
+
+---
+
+background-image: url(https://github.com/rstudio/hex-stickers/raw/master/PNG/forcats.png)
+background-position: 95% 5%
+background-size: 10%
+
+# Domar los datos II
+
+## Variables categóricas
+
+
+> *Los factores son útiles cuando se tiene datos categóricos, variables que tienen un conjunto de valores fijo y conocido, y cuando se desea mostrar los vectores de caracteres en orden no alfabético*
+
+**R4DS - <https://es.r4ds.hadley.nz/factores.html>**
+
+--
+
+
+* `fct_reorder()` > modifica el orden
+
+--
+
+* `fct_recode()` > modifica valores (no niveles)
+
+--
+
+* `fct_collapse()`> colapsar es útil para re codificar muchos niveles 
+--
+
+* `fct_lump()` > agrupa 
+
+
+---
+
+class:  middle, center, inverse
+
+
+# Programación (Intro)
+
+---
+
+## `r icon::fa("book")` Referencias
+
+* [_Pipes_, Funciones, Vectores e Iteración](https://es.r4ds.hadley.nz/programar-intro.html), en **Wickham y Grolemnud**
+
+
+
+```{r, echo=FALSE, out.width="90%"}
+knitr::include_graphics("https://es.r4ds.hadley.nz/diagrams_w_text_as_path/es/data-science-program.svg")
+```
+
+
+---
+background-image: url(https://github.com/tidyverse/magrittr/raw/master/man/figures/logo.png)
+background-position: 95% 5%
+background-size: 10%
+
+# "*Esto no es una pipa*"
+
+### Una receta
+```{r, eval=FALSE}
+the_data <-
+  read.csv('/path/to/data/file.csv') %>%
+  subset(variable_a > x) %>%
+  transform(variable_c = variable_a/variable_b) %>%
+  head(100)
+```
+--
+* Secuencia de comandos u ordenes
+
+--
+
+* Lectura de izquierda a derecha
+
+--
+
+* Minimizar (i) funciones anidadas y (ii)
+creación de objetos intermedios
+
+--
+
+* Facilita posibiidad de modificar secuencia y agregar pasos en el medio de la misma
+
+[`r icon::fa("link")`{magrittr}](https://magrittr.tidyverse.org/)
+
+---
+
+background-image: url(https://github.com/tidyverse/glue/raw/master/man/figures/logo.png)
+background-position: 95% 3%
+background-size: 10%
+
+# Facilitando el _pegado_
+
+
+```{r, echo=F}
+library(glue)
+nombre <- "TuQmano"
+ocupacion <- "Cientista de Datos"
+aniversario <- as.Date("1983-09-15")
+glue("Mi nombre es {nombre}. 
+     Trabajo de {ocupacion}. 
+     Nací el {format(aniversario, '%A %d de %B de %Y')}")
+```
+
+
+[`r icon::fa("link")`{glue}](https://glue.tidyverse.org/) 
+[y `r icon::fa("link")` alternativas](https://trinkerrstuff.wordpress.com/2013/09/15/paste-paste0-and-sprintf-2/) como `paste()`, `paste0()` y `sprintf()`. 
+
+
+--
+
+```{r, eval=F}
+library(glue)
+nombre <- "TuQmano"
+ocupacion <- "Cientista de Datos"
+aniversario <- as.Date("1983-09-15")
+```
+
+
+
+
+--
+```{r, eval=F}
+glue("Mi nombre es {nombre}. 
+     Trabajo de {ocupacion}.
+     Nací el {format(aniversario, '%A, %d de %B de %Y')}")
+```
+
+
+
+---
+class: middle
+
+background-image: url(https://github.com/tidyverse/glue/raw/master/man/figures/logo.png)
+background-position: 95% 3%
+background-size: 10%
+
+# Facilitando el _pegado_
+
+
+
+```{r}
+nombres_ocupacion_aniversario <- tibble::tribble(
+        ~nombre,   ~ocupacion,         ~aniversario,
+         "Juan", "Arquitecto",         "25/10/1945",
+        "María", "Presidenta",         "17/10/1968",
+      "Ruperto",    "Maestro",         "23/10/1975",
+       "Germán",  "dibujante", "9 de abril de 1936",
+     "Josefina",  "Contadora", "6 de enero de 1982"
+     )
+
+nombres_ocupacion_aniversario
+
+```
+
+
+---
+class: middle
+
+background-image: url(https://github.com/tidyverse/glue/raw/master/man/figures/logo.png)
+background-position: 95% 3%
+background-size: 10%
+
+# Facilitando el _pegado_
+
+
+```{r}
+library(glue) # para pegado 'programatico'
+library(dplyr) # para trasformar y manipular variables
+library(lubridate) # Para parsear las fechas 
+
+nombres_ocupacion_aniversario %>% 
+  mutate(aniversario = dmy(aniversario)) %>% 
+  mutate(texto = glue("Mi nombre es {nombre}.Trabajo de {ocupacion}. Nací el {format(aniversario, '%A, %d de %B de %Y')}")) %>% 
+  pull(texto)
+
+
+
+```
+
+
+
+
+
+
+
+---
+
+# Programando con `R base`
+
+```{r}
+df <- tibble::tibble(
+ a = rnorm(10),
+ b = rnorm(10),
+ c = rnorm(10),
+ d = rnorm(10)
+)
+
+
+df
+
+```
+
+---
+
+# Programando con `R base`
+
+
+```{r}
+df$a <- (df$a - min(df$a)) /
+ (max(df$a) - min(df$a))
+
+
+df$b <- (df$b - min(df$b)) /
+ (max(df$b) - min(df$a))
+
+
+df$c <- (df$c - min(df$c)) /
+ (max(df$c) - min(df$c))
+
+
+df$d <- (df$d - min(df$d)) /
+ (max(df$d) - min(df$d))
+```
+
+--
+* Qué estamos calculando? 
+
+--
+* Dónde está el error?
+
+--
+
+> **Deberías considerar escribir una función cuando has copiado y pegado un bloque de código más de dos veces** - [**`r icon::fa("link")` R4DS**](https://es.r4ds.hadley.nz/funciones.html#cu%C3%A1ndo-deber%C3%ADas-escribir-una-funci%C3%B3n)
+
+---
+
+# Programando con `R base` 
+
+```{r}
+x <- df$a
+
+(x - min(x)) / (max(x) - min(x))
+```
+
+--
+
+```{r}
+rng <- range(x)
+
+(x - rng[1]) / (rng[2] - rng[1])
+```
+
+--
+
+```{r}
+rescale01 <- function(x) {
+ rng <- range(x, na.rm = TRUE)
+ (x - rng[1]) / (rng[2] - rng[1])
+}
+
+
+rescale01(c(22, 50, 10, 32))
+```
+
+---
+background-image: url(https://politicaargentina.github.io/electorAr/reference/figures/logo.png)
+background-position: 95% 3%
+background-size: 10%
+
+
+
+## Datos `{electorAr}`
+
+```{r}
+library(electorAr)
+tucuman_dip_gral_2017 %>% 
+  get_names()
+```
+
+---
+
+background-image: url(https://politicaargentina.github.io/electorAr/reference/figures/logo.png)
+background-position: 95% 3%
+background-size: 10%
+
+
+## % votos 
+
+```{r}
+library(electorAr)
+library(dplyr)
+
+tucuman_dip_gral_2017 %>% 
+  get_names() %>% 
+  transmute(nombre_lista, votos, 
+            pct = round(votos/sum(votos)*100,1))#<<
+  
+```
+
+
+
+---
+
+background-image: url(https://github.com/PoliticaArgentina/electorAr/raw/main/man/figures/logo.png)
+background-position: 95% 3%
+background-size: 10%
+
+## `function()` 
+### generalizar cálculo de % para un vector
+
+
+```{r}
+calcular_pct <- function(data){
+  
+  round(data/sum(data)*100,1) #<<
+}
+```
+
+
+---
+
+background-image: url(https://github.com/PoliticaArgentina/electorAr/raw/main/man/figures/logo.png)
+background-position: 95% 3%
+background-size: 10%
+
+## % votos 
+###  `calcular_pct(data)` 
+
+```{r}
+datos <- electorAr::tucuman_dip_gral_2017
+datos %>% 
+  get_names() %>% 
+  dplyr::transmute(nombre_lista,
+                   pct = calcular_pct(data = votos)) #<<
+```
+
+
+
+
+
