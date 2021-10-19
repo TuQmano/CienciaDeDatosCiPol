@@ -1,0 +1,1172 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Herramientas Cuantitativas para el Análisis Político</title>
+    <meta charset="utf-8" />
+    <script src="libs/header-attrs/header-attrs.js"></script>
+    <link href="libs/tile-view/tile-view.css" rel="stylesheet" />
+    <script src="libs/tile-view/tile-view.js"></script>
+    <link href="libs/animate.css/animate.xaringan.css" rel="stylesheet" />
+    <link href="libs/tachyons/tachyons.min.css" rel="stylesheet" />
+    <script type="application/json" id="xaringanExtra-editable-docid">{"id":"f5de2a2641004271a61f64e00d7eb0e2","expires":14}</script>
+    <script src="libs/himalaya/himalaya.js"></script>
+    <script src="libs/js-cookie/js.cookie.js"></script>
+    <link href="libs/editable/editable.css" rel="stylesheet" />
+    <script src="libs/editable/editable.js"></script>
+    <script src="libs/xaringanExtra-webcam/webcam.js"></script>
+    <script id="xaringanExtra-webcam-options" type="application/json">{"width":"200","height":"200","margin":"1em"}</script>
+    <script src="libs/peerjs/peerjs.min.js"></script>
+    <script src="libs/tiny.toast/toast.min.js"></script>
+    <link href="libs/xaringanExtra-broadcast/broadcast.css" rel="stylesheet" />
+    <script src="libs/xaringanExtra-broadcast/broadcast.js"></script>
+    <script src="libs/fabric/fabric.min.js"></script>
+    <link href="libs/xaringanExtra-scribble/scribble.css" rel="stylesheet" />
+    <script src="libs/xaringanExtra-scribble/scribble.js"></script>
+    <script>document.addEventListener('DOMContentLoaded', function() { window.xeScribble = new Scribble({"pen_color":["#FF0000"],"pen_size":3,"eraser_size":30,"palette":[]}) })</script>
+    <script src="libs/xaringanExtra-progressBar/progress-bar.js"></script>
+    <link href="libs/font-awesome/css/fontawesome-all.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="footer-header.css" type="text/css" />
+    <link rel="stylesheet" href="styles.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Herramientas Cuantitativas para el Análisis Político
+## Maestría en Ciencia Política [CP44]
+### 
+### Universidad Torcuato Di Tella
+### 19/10/2021
+
+---
+
+
+layout: true
+  
+&lt;div class="my-footer"&gt;&lt;span&gt;Juan Pablo Ruiz Nicolini | @TuQmano | &lt;a href="https://tuqmano.ar/"&gt;www.tuqmano.ar&lt;/a&gt;&lt;/span&gt;&lt;/div&gt; 
+
+
+
+
+
+
+
+<style>.xe__progress-bar__container {
+  top:0;
+  opacity: 1;
+  position:absolute;
+  right:0;
+  left: 0;
+}
+.xe__progress-bar {
+  height: 0.25em;
+  background-color: #fdbd15;
+  width: calc(var(--slide-current) / var(--slide-total) * 100%);
+}
+.remark-visible .xe__progress-bar {
+  animation: xe__progress-bar__wipe 200ms forwards;
+  animation-timing-function: cubic-bezier(.86,0,.07,1);
+}
+@keyframes xe__progress-bar__wipe {
+  0% { width: calc(var(--slide-previous) / var(--slide-total) * 100%); }
+  100% { width: calc(var(--slide-current) / var(--slide-total) * 100%); }
+}</style>
+
+
+---
+class: inverse, center, middle
+
+# REPASO
+
+
+---
+
+##  Ciencia de Datos - Domar Datos
+
+&lt;img src="https://es.r4ds.hadley.nz/diagrams_w_text_as_path/es/data-science-wrangle.svg" width="100%" /&gt;
+
+
+<i class="fas  fa-link "></i> [R para Ciencia de Datos - R4DS](https://es.r4ds.hadley.nz)
+
+
+---
+
+background-image: url(https://github.com/TuQmano/hex-stickers/raw/master/PNG/tidyr.png)
+background-position: 95% 5%
+background-size: 10%
+
+# Domar los datos I
+
+## Datos Ordenados
+
+
+&lt;img src="https://es.r4ds.hadley.nz/diagrams_w_text_as_path/es/tidy-1.svg" width="80%" /&gt;
+
+
+1. Cada variable debe tener su propia columna.
+
+2. Cada observación debe tener su propia fila.
+
+3. Cada valor debe tener su propia celda.
+
+
+---
+
+background-image: url(https://github.com/TuQmano/hex-stickers/raw/master/PNG/tidyr.png)
+background-position: 95% 5%
+background-size: 10%
+
+# Domar los datos I
+
+## Datos Ordenados: _pivotear_
+
+Entre los distintos verbos, se destacan: 
+
+* `pivot_longer()`: reduce cantidad de columnas y aumenta las filas
+
+* `pivot_wider()`: reduce cantidad de filas y aumenta columnas
+
+### Más verbos: 
+
+`complete / fill / replace_na / drop_na`,
+
+`nest / unnest`, 
+
+`unite /separate / extract`
+
+[<i class="fas  fa-link "></i>`{tidyr}`](https://tidyr.tidyverse.org/)
+
+---
+
+background-image: url(https://github.com/TuQmano/hex-stickers/raw/master/PNG/dplyr.png)
+background-position: 95% 5%
+background-size: 10%
+
+# Domar los datos I
+
+## Transformar
+
+### Una caja de herramientas
+
+#### Verbos principales de `{dplyr}` para manipular la _data_
+
+* `filter()`: reduce la cantidad de filas  (observaciones)
+
+* `select()`: reduce la cantidad de columnas (variables)
+
+* `mutate()`: crea o modifica variables 
+
+* `arrange()`: ordena (sort)
+
+* `group_by()`: agrupa observaciones
+
+* `summarize()`: reduce múltiples observaciones a un valor
+
+---
+
+background-image: url(https://www.tidyverse.org/blog/2020/06/dplyr-1-0-0/dplyr.png)
+background-position: 95% 5%
+background-size: 10%
+
+# Domar los datos I
+
+## + verbos de `{dplyr}`
+
+
+
+* `n()`
+
+* `slice()` (y variantes:  `slice_*()`)
+
+* `rename()`
+
+* `case_when()` (re versión de `ifelse()`)
+
+* Variantes de `mutate_*()` y `summarise_*()`
+
+  -  `across()` en el [*nuevo* `{dplyr}` <i class="fas  fa-link "></i>](https://www.tidyverse.org/blog/2020/06/dplyr-1-0-0/) 
+
+
+
+---
+
+background-image: url(https://www.tidyverse.org/blog/2020/06/dplyr-1-0-0/dplyr.png)
+background-position: 95% 5%
+background-size: 10%
+
+
+## Datos relacionales 
+
+.pull-left[
+![](https://www.garrickadenbuie.com/project/tidyexplain/images/left-join-extra.gif)&lt;!-- --&gt;
+
+
+[<i class="fas  fa-link "></i> Tidy Explain, Garrick Aden-Buie](https://www.garrickadenbuie.com/project/tidyexplain/)
+
+]
+
+.pull-right[
+
+* Uniones de transformación (del inglés _mutating joins_), que agregan nuevas variables a un data frame a partir de las observaciones coincidentes en otra tabla (*vg* `left_join()`)
+
+* Uniones de filtro (del inglés _filtering joins_), que filtran observaciones en un _data frame_ con base en si coinciden o no con una observación de otra tabla (*vg* `anti_join()`).
+
+* Operaciones de conjuntos (del inglés _set operations_), que tratan las observaciones como elementos de un conjunto (*vg* `set_diff()`).
+
+
+<i class="fas  fa-link "></i> [Datos Relacionales - R4DS](https://es.r4ds.hadley.nz/datos-relacionales.html)
+
+]
+
+
+---
+class: inverse, middle, center
+
+# Domar los Datos
+### (II Parte) 
+
+---
+
+
+background-image: url(https://github.com/rstudio/hex-stickers/raw/master/PNG/stringr.png)
+background-position: 95% 5%
+background-size: 10%
+
+# Domar los datos II
+
+## Caracteres 
+
+
+* Funciones que permiten manipular caracteres individuales dentro de las cadenas en vectores de caracteres
+
+**`str_sub(string = x, start = 1, end = 4)`**
+
+
+* Herramientas para agregar, eliminar y manipular espacios en blanco
+
+**`str_pad(string = x , width = 2 , side = "left" , pad = 0)`**
+
+
+* Funciones que detectan coincidencia de patrones como  las _expresiones regulares_ -[_regex_ ](https://stringr.tidyverse.org/articles/regular-expressions.html) <i class="fas  fa-link "></i>:
+
+
+**`str_detect(string = x, pattern = ":digits:")`**
+
+
+[<i class="fas  fa-link "></i>`{stringr}`](https://stringr.tidyverse.org/articles/stringr.html)
+
+---
+background-image: url(https://github.com/rstudio/hex-stickers/raw/master/PNG/lubridate.png)
+background-position: 95% 5%
+background-size: 10%
+
+# Domar los datos II
+
+## Días y horas
+
+`{lubridate}` incluye una gran variedad de funciones para **(a) *paresear* días y horas**; **(b) crear y extraer información**; (c) manejar zonas horarias (_tz_); y hasta calcular intervalos de tiempo y _aritmética de tiempo_
+
+
+```r
+library(lubridate) # (a)
+dmy("5 de octubre de 2021")
+## [1] "2021-10-05"
+```
+
+
+
+```r
+library(lubridate) # (b)
+today() + 365
+## [1] "2022-10-19"
+```
+
+
+[<i class="fas  fa-link "></i>`{lubridate}`](https://lubridate.tidyverse.org/index.html)
+
+
+---
+
+background-image: url(https://github.com/rstudio/hex-stickers/raw/master/PNG/forcats.png)
+background-position: 95% 5%
+background-size: 10%
+
+# Domar los datos II
+
+## Variables categóricas
+
+
+&gt; *Los factores son útiles cuando se tiene datos categóricos, variables que tienen un conjunto de valores fijo y conocido, y cuando se desea mostrar los vectores de caracteres en orden no alfabético*
+
+**R4DS - &lt;https://es.r4ds.hadley.nz/factores.html&gt;**
+
+
+
+* `fct_reorder()` &gt; modifica el orden
+
+
+
+* `fct_recode()` &gt; modifica valores (no niveles)
+
+
+* `fct_collapse()`&gt; colapsar es útil para re codificar muchos niveles 
+
+
+* `fct_lump()` &gt; agrupa 
+
+
+---
+
+class:  middle, center, inverse
+
+
+# Programación (Intro)
+
+---
+
+## <i class="fas  fa-book "></i> Referencias
+
+* [_Pipes_, Funciones, Vectores e Iteración](https://es.r4ds.hadley.nz/programar-intro.html), en **Wickham y Grolemnud**
+
+
+
+&lt;img src="https://es.r4ds.hadley.nz/diagrams_w_text_as_path/es/data-science-program.svg" width="90%" /&gt;
+
+
+---
+background-image: url(https://github.com/tidyverse/magrittr/raw/master/man/figures/logo.png)
+background-position: 95% 5%
+background-size: 10%
+
+# "*Esto no es una pipa*"
+
+### Una receta
+
+```r
+the_data &lt;-
+  read.csv('/path/to/data/file.csv') %&gt;%
+  subset(variable_a &gt; x) %&gt;%
+  transform(variable_c = variable_a/variable_b) %&gt;%
+  head(100)
+```
+
+[<i class="fas  fa-link "></i>{magrittr}](https://magrittr.tidyverse.org/)
+
+
+
+---
+background-image: url(https://raw.githubusercontent.com/tidyverse/glue/master/man/figures/logo.png)
+background-position: 95% 5%
+background-size: 10%
+
+
+
+# Facilitando el _pegado_
+
+
+[<i class="fas  fa-link "></i>{glue}](https://glue.tidyverse.org/) 
+ 
+
+
+
+
+```r
+library(glue)
+
+nombre &lt;- "TuQmano"
+ocupacion &lt;- "Cientista de Datos"
+aniversario &lt;- as.Date("1983-09-15")
+
+
+glue("Mi nombre es {nombre}. Trabajo de {ocupacion}.
+     Nací el {format(aniversario, '%A, %d de %B de %Y')}")
+## Mi nombre es TuQmano. Trabajo de Cientista de Datos.
+## Nací el jueves, 15 de septiembre de 1983
+```
+
+
+[<i class="fas  fa-link "></i> alternativas](https://trinkerrstuff.wordpress.com/2013/09/15/paste-paste0-and-sprintf-2/) como `paste()`, `paste0()` y `sprintf()`
+
+---
+
+background-image: url(https://politicaargentina.github.io/electorAr/reference/figures/logo.png)
+background-position: 95% 3%
+background-size: 10%
+
+
+## % votos 
+
+
+```r
+library(electorAr)
+library(dplyr)
+
+tucuman_dip_gral_2017 %&gt;% 
+  get_names() %&gt;% 
+  transmute(nombre_lista, votos, 
+*           pct = round(votos/sum(votos)*100,1))
+## # A tibble: 6 x 4
+## # Groups:   codprov [1]
+##   codprov nombre_lista                               votos   pct
+##   &lt;chr&gt;   &lt;chr&gt;                                      &lt;dbl&gt; &lt;dbl&gt;
+## 1 23      FUERZA REPUBLICANA                        154930  15.5
+## 2 23      FRENTE DE IZQUIERDA Y DE LOS TRABAJADORES  46609   4.7
+## 3 23      CAMBIEMOS PARA EL BICENTENARIO            319221  32  
+## 4 23      FRENTE JUSTICIALISTA POR TUCUMAN          459257  46  
+## 5 23      blancos                                     5920   0.6
+## 6 23      nulos                                      12947   1.3
+```
+
+
+
+---
+
+background-image: url(https://github.com/PoliticaArgentina/electorAr/raw/main/man/figures/logo.png)
+background-position: 95% 3%
+background-size: 10%
+
+## `function()` 
+
+### generalizar cálculo de % para un vector
+
+
+
+```r
+calcular_pct &lt;- function(data){
+  
+* round(data/sum(data)*100,1)
+}
+```
+
+
+---
+
+background-image: url(https://github.com/PoliticaArgentina/electorAr/raw/main/man/figures/logo.png)
+background-position: 95% 3%
+background-size: 10%
+
+## % votos 
+###  `calcular_pct(data)` 
+
+
+```r
+datos &lt;- electorAr::tucuman_dip_gral_2017
+datos %&gt;% 
+  get_names() %&gt;% 
+  dplyr::transmute(nombre_lista,
+*                  pct = calcular_pct(data = votos))
+## # A tibble: 6 x 3
+## # Groups:   codprov [1]
+##   codprov nombre_lista                                pct
+##   &lt;chr&gt;   &lt;chr&gt;                                     &lt;dbl&gt;
+## 1 23      FUERZA REPUBLICANA                         15.5
+## 2 23      FRENTE DE IZQUIERDA Y DE LOS TRABAJADORES   4.7
+## 3 23      CAMBIEMOS PARA EL BICENTENARIO             32  
+## 4 23      FRENTE JUSTICIALISTA POR TUCUMAN           46  
+## 5 23      blancos                                     0.6
+## 6 23      nulos                                       1.3
+```
+
+
+
+
+---
+
+
+---
+
+background-image: url(https://github.com/tidyverse/purrr/raw/master/man/figures/logo.png)
+background-position: 95% 5%
+background-size: 10%
+
+# Iteración 
+
+
+[<i class="fas  fa-link "></i>{purrr}](https://purrr.tidyverse.org/)
+
+&lt;img src="https://www.gerkelab.com/blog/2018-09-20-import-a-directory-of-csv-files-at-once-using-purrr-and-readr_files/map_dfr-csv_files-read_csv.png" width="70%" /&gt;
+
+
+<i class="fas  fa-link "></i> **&lt;https://www.gerkelab.com/blog/2018/09/import-directory-csv-purrr-readr/&gt;**
+
+
+
+---
+
+
+background-image: url(https://github.com/tidyverse/purrr/raw/master/man/figures/logo.png)
+background-position: 95% 5%
+background-size: 10%
+
+# Iteración 
+
+## Ejemplo de escritura de múltiples archivos
+
+
+[<i class="fas  fa-link "></i> **Claus Wilke**: _Reading and combining many tidy data files in R_](https://clauswilke.com/blog/2016/06/13/reading-and-combining-many-tidy-data-files-in-r/)
+
+--
+
+```r
+require(readr)  # para write_csv()
+require(dplyr)  # para mutate()
+require(tidyr)  # para unnest()
+require(purrr)  # para map()
+```
+
+---
+
+background-image: url(https://github.com/tidyverse/purrr/raw/master/man/figures/logo.png)
+background-position: 95% 5%
+background-size: 10%
+
+
+# Iteración 
+
+## Ejemplo de escritura de múltiples archivos
+
+
+
+
+```r
+library(electorAr)
+
+datos &lt;- get_election_data(district = "arg", category = "presi", round = "gral", year = 2003) %&gt;% 
+    get_names()
+
+datos
+## # A tibble: 480 x 9
+## # Groups:   codprov [24]
+##    category round  year codprov name_prov electores listas votos nombre_lista   
+##    &lt;chr&gt;    &lt;chr&gt; &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;         &lt;dbl&gt; &lt;chr&gt;  &lt;dbl&gt; &lt;chr&gt;          
+##  1 presi    gral   2003 01      CABA        2590435 0001    2985 Mov. de Integr~
+##  2 presi    gral   2003 01      CABA        2590435 0003   16216 Unión Cívica R~
+##  3 presi    gral   2003 01      CABA        2590435 0005    6324 Partido Demócr~
+##  4 presi    gral   2003 01      CABA        2590435 0014   14828 Partido Obrero 
+##  5 presi    gral   2003 01      CABA        2590435 0022   16371 Partido Humani~
+##  6 presi    gral   2003 01      CABA        2590435 0030    7302 Partido Social~
+##  7 presi    gral   2003 01      CABA        2590435 0037    1843 Mov. por la Di~
+##  8 presi    gral   2003 01      CABA        2590435 0050   50703 Partido Social~
+##  9 presi    gral   2003 01      CABA        2590435 0051    4264 Partido Popula~
+## 10 presi    gral   2003 01      CABA        2590435 0053   15948 Conf. Para que~
+## # ... with 470 more rows
+```
+
+
+---
+
+background-image: url(https://github.com/tidyverse/purrr/raw/master/man/figures/logo.png)
+background-position: 95% 5%
+background-size: 10%
+
+
+# Iteración 
+
+## Ejemplo de escritura de múltiples archivos
+
+
+
+```r
+
+nested &lt;- datos %&gt;% 
+  group_by(name_prov) %&gt;% 
+  nest()
+
+nested
+## # A tibble: 24 x 2
+## # Groups:   name_prov [24]
+##    name_prov    data             
+##    &lt;chr&gt;        &lt;list&gt;           
+##  1 CABA         &lt;tibble [20 x 8]&gt;
+##  2 BUENOS AIRES &lt;tibble [20 x 8]&gt;
+##  3 CATAMARCA    &lt;tibble [20 x 8]&gt;
+##  4 CORDOBA      &lt;tibble [20 x 8]&gt;
+##  5 CORRIENTES   &lt;tibble [20 x 8]&gt;
+##  6 CHACO        &lt;tibble [20 x 8]&gt;
+##  7 CHUBUT       &lt;tibble [20 x 8]&gt;
+##  8 ENTRE RIOS   &lt;tibble [20 x 8]&gt;
+##  9 FORMOSA      &lt;tibble [20 x 8]&gt;
+## 10 JUJUY        &lt;tibble [20 x 8]&gt;
+## # ... with 14 more rows
+```
+
+---
+
+background-image: url(https://github.com/tidyverse/purrr/raw/master/man/figures/logo.png)
+background-position: 95% 5%
+background-size: 10%
+
+
+# Iteración 
+
+## Ejemplo de escritura de múltiples archivos
+
+
+
+```r
+
+nested %&gt;% 
+  
+pwalk( ~ write_csv(x = .y, file = glue::glue("{here::here('clases', 'data', 'multiple_files')}/{.x}.csv")))
+
+```
+
+---
+
+class:  middle, center, inverse
+
+
+# Data Viz I 
+
+## La _Gramática de los Gráficos_
+
+
+---
+class: inverse, middle
+
+
+# Garmática de los Gráficos
+
+
+
+&gt;**Un conjunto formal de reglas para la producción de gráficos estadísticos**
+--
+
+&gt; **Se basa en la definición de capas**
+--
+
+**- _Leland Wilkinson_**
+
+--
+ 
+
+* Estadística y Ciencia de Computación  **+**
+
+--
+
+* Experto en Viz (_SPSS, Tableau_) **+**
+
+--
+
+**-&gt;**  [_**Grammar of Graphics**_ (1999)](https://www.springer.com/gp/book/9780387245447)    
+
+
+
+---
+
+## <i class="fas  fa-book "></i> Referencias (I)
+
+ Tres libros relevantes:
+
+- [`ggplot2`: _**Elegant Graphics for Data Analysis**_](https://ggplot2-book.org/) (**H. Wickham**) es el material principal con definiciones de la aplicación de la _gramática de gráficos_ en `R`. 
+
+--
+
+- [_**Data Visualization: A Pracitcal Introduction**_](https://socviz.co/index.html#preface) (**K. Heley**) disute principios sobre visualización de datos, y consejos práctivos de su aplicación acompañado de código en `R` par reproducirlos. 
+
+--
+
+- En [_**Fundamentals of Data Visualization**_](https://clauswilke.com/dataviz/) (**Claus Wilke**) presentan argumentos y consejos para realizar visualizaciones profesionales que representen correctamente los datos. 
+
+---
+
+## <i class="fas  fa-book "></i> Referencias (II)
+
+
+1. _Visualización de Datos (Intro)_, en "[R para Ciencia de Datos](https://es.r4ds.hadley.nz/visualizaci%C3%B3n-de-datos.html#introducci%C3%B3n-1)" (Wickham y Grolemnud).
+
+2. [_ModernDive_](https://moderndive.com/2-viz.html)
+
+3. [(a) Urdinez y Cruz](https://arcruz0.github.io/libroadp/dataviz.html); [(b) Montané](https://martinmontane.github.io/CienciaDeDatosBook/visualizaciones-de-datos-en-r.html); y [(c) Vázquez Brust](https://bitsandbricks.github.io/ciencia_de_datos_gente_sociable/visualizaci%C3%B3n.html). 
+
+
+---
+
+background-image: url(https://github.com/rstudio/hex-stickers/raw/master/PNG/ggplot2.png)
+background-position: 95% 15%
+background-size: 10%
+
+
+# Data Viz
+
+## La **g**ramática de los **g**ráficos en `R` 
+
+#### _Dibujando por capas_ con [<i class="fas  fa-link "></i>`{ggplot2}`](https://ggplot2.tidyverse.org/index.html)
+
+
+&lt;img src="../fig/ggplot_layers.png" width="35%" /&gt;
+
+--
+
+**<i class="fab  fa-youtube "></i>** [_Plotting Anything with `ggplot2`_](https://www.youtube.com/watch?v=h29g21z0a68) - Thomas Lin Pedersen.
+
+
+---
+
+background-image: url(https://github.com/rstudio/hex-stickers/raw/master/PNG/ggplot2.png)
+background-position: 95% 15%
+background-size: 10%
+
+class: middle, inverse
+
+# Data Viz
+
+## RECETA BÁSICA
+
+
+
+
+```r
+ggplot(data = &lt;DATA&gt;) + 
+  &lt;GEOM_FUNCTION&gt;(mapping = aes(&lt;MAPPINGS&gt;))
+```
+
+
+
+---
+
+background-image: url(https://github.com/rstudio/hex-stickers/raw/master/PNG/ggplot2.png)
+background-position: 95% 10%
+background-size: 10%
+
+
+# Data Viz
+
+### `millas` del   [paquete <i class="fas  fa-link "></i>`{datos}`](https://cienciadedatos.github.io/datos/)
+
+
+
+
+```r
+library(tidyverse)
+library(datos)
+dplyr::as_tibble(millas)
+## # A tibble: 234 x 11
+##    fabricante modelo     cilindrada  anio cilindros transmision traccion ciudad
+##    &lt;chr&gt;      &lt;chr&gt;           &lt;dbl&gt; &lt;int&gt;     &lt;int&gt; &lt;chr&gt;       &lt;chr&gt;     &lt;int&gt;
+##  1 audi       a4                1.8  1999         4 auto(l5)    d            18
+##  2 audi       a4                1.8  1999         4 manual(m5)  d            21
+##  3 audi       a4                2    2008         4 manual(m6)  d            20
+##  4 audi       a4                2    2008         4 auto(av)    d            21
+##  5 audi       a4                2.8  1999         6 auto(l5)    d            16
+##  6 audi       a4                2.8  1999         6 manual(m5)  d            18
+##  7 audi       a4                3.1  2008         6 auto(av)    d            18
+##  8 audi       a4 quattro        1.8  1999         4 manual(m5)  4            18
+##  9 audi       a4 quattro        1.8  1999         4 auto(l5)    4            16
+## 10 audi       a4 quattro        2    2008         4 manual(m6)  4            20
+## # ... with 224 more rows, and 3 more variables: autopista &lt;int&gt;,
+## #   combustible &lt;chr&gt;, clase &lt;chr&gt;
+```
+
+
+---
+background-image: url(https://github.com/rstudio/hex-stickers/raw/master/PNG/ggplot2.png)
+background-position: 95% 15%
+background-size: 10%
+
+
+# Data Viz: _ggplot2_ 
+
+### Receta básica
+
+
+
+
+```r
+ggplot(data = millas) +  # DATOS 
+  geom_point(mapping = aes(x = cilindrada,      
+                           y = autopista)) # ESTETICAS
+```
+
+&lt;img src="clase6_files/figure-html/millas-1.png" width="40%" /&gt;
+
+
+---
+
+background-image: url(https://github.com/rstudio/hex-stickers/raw/master/PNG/ggplot2.png)
+background-position: 95% 15%
+background-size: 10%
+
+
+# _Dibujando por capas_
+
+### mapeo y estéticas
+
+
+
+&lt;img src="../fig/ggplot_layers.png" width="35%" /&gt;
+
+---
+
+
+## Una capa estética extra con **_aes()_**
+ 
+ 
+
+```r
+ggplot(data = millas) +   # 'Esteticas'
+  geom_point(mapping = aes(x = cilindrada,      
+                           y = autopista,         
+*                          colour = clase))
+```
+
+&lt;img src="clase6_files/figure-html/unnamed-chunk-18-1.png" width="50%" /&gt;
+
+
+---
+background-image: url(https://github.com/rstudio/hex-stickers/raw/master/PNG/ggplot2.png)
+background-position: 95% 5%
+background-size: 10%
+
+## _mapping_ VS _setting_
+
+
+
+```r
+*# Que pasa acá?
+ggplot(data = millas) +  
+  geom_point(mapping = aes(x = cilindrada,      
+                           y = autopista, 
+*                          colour = "blue"))
+```
+
+&lt;img src="clase6_files/figure-html/unnamed-chunk-19-1.png" width="40%" /&gt;
+
+---
+background-image: url(https://github.com/rstudio/hex-stickers/raw/master/PNG/ggplot2.png)
+background-position: 95% 1%
+background-size: 10%
+
+## Data Viz: _ggplot2_ 
+
+
+
+```r
+ggplot(data = millas) +  
+  geom_point(mapping = aes(x = cilindrada,      
+                           y = autopista), 
+*            colour = "blue")
+```
+
+&lt;img src="clase6_files/figure-html/unnamed-chunk-20-1.png" width="40%" /&gt;
+
+---
+background-image: url(https://github.com/rstudio/hex-stickers/raw/master/PNG/ggplot2.png)
+background-position: 95% 1%
+background-size: 10%
+
+## Data Viz: _ggplot2_
+
+Cada **_geometry_ tiene parámetros específicos** que pueden ser ajustados dentro de la capa _estética_.  El **color** es uno de ellos. 
+
+--
+
+
+
+A `geom_point` podemos asignarle una forma particular en función de valores de alguna variable, por ejemplo:
+
+&lt;img src="https://es.r4ds.hadley.nz/03-visualize_files/figure-html/unnamed-chunk-8-1.png" width="30%" /&gt;
+
+* `shape`
+
+--
+
+* `size`
+
+--
+
+* `alpha`
+
+--
+
+* `fill`
+
+---
+
+background-image: url(https://github.com/rstudio/hex-stickers/raw/master/PNG/ggplot2.png)
+background-position: 95% 15%
+background-size: 10%
+
+
+## _Dibujando por capas_ : **_facets_**
+
+
+
+&lt;img src="../fig/ggplot_layers.png" width="35%" /&gt;
+
+---
+
+background-image: url(https://github.com/rstudio/hex-stickers/raw/master/PNG/ggplot2.png)
+background-position: 95% 1%
+background-size: 10%
+
+## Data Viz: _ggplot2_: **facetas**
+
+##### _small multiples_
+
+
+```r
+ggplot(data = millas) +
+  geom_point(mapping = aes(x = cilindrada, y = autopista)) +
+* facet_wrap(~ clase, nrow = 2)
+```
+
+&lt;img src="clase6_files/figure-html/unnamed-chunk-23-1.png" width="45%" /&gt;
+
+
+---
+
+background-image: url(https://github.com/rstudio/hex-stickers/raw/master/PNG/ggplot2.png)
+background-position: 95% 15%
+background-size: 10%
+
+
+## _Dibujando por capas_: **_geometry_**
+
+
+&lt;img src="../fig/ggplot_layers.png" width="35%" /&gt;
+
+---
+background-image: url(https://github.com/rstudio/hex-stickers/raw/master/PNG/ggplot2.png)
+background-position: 95% 1%
+background-size: 10%
+
+## Data Viz: _ggplot2_: 
+
+variedad de **geometrías** posibles
+
+
+&lt;img src="clase6_files/figure-html/unnamed-chunk-25-1.png" width="35%" /&gt;&lt;img src="clase6_files/figure-html/unnamed-chunk-25-2.png" width="35%" /&gt;
+
+--
+
+
+```r
+# izquierda
+ggplot(data = millas) +
+* geom_point(mapping = aes(x = cilindrada, y = autopista))
+# derecha
+ggplot(data = millas) +
+* geom_smooth(mapping = aes(x = cilindrada, y = autopista))
+```
+
+---
+background-image: url(https://github.com/rstudio/hex-stickers/raw/master/PNG/ggplot2.png)
+background-position: 95% 1%
+background-size: 10%
+
+
+## Data Viz: _ggplot2_
+
+&gt; Integramos los dos `geom_` como capas de un mismo gráfico
+
+```r
+ggplot(data = millas) +
+  geom_point(mapping = aes(x = cilindrada, y = autopista)) +
+  geom_smooth(mapping = aes(x = cilindrada, y = autopista))
+```
+
+&lt;img src="clase6_files/figure-html/unnamed-chunk-27-1.png" width="35%" /&gt;
+
+--
+
+#### **Que notan en el código?**
+
+
+---
+background-image: url(https://github.com/rstudio/hex-stickers/raw/master/PNG/ggplot2.png)
+background-position: 95% 1%
+background-size: 10%
+
+## Data Viz: _ggplot2_
+
+**Podemos asignar parametros _globales_ para todo el gráfico (que pueden ser sobrescritos en capas siguientes)**
+
+
+```r
+ggplot(data = millas, aes(x = cilindrada, y = autopista)) +
+  geom_point() +
+  geom_smooth()
+```
+
+&lt;img src="clase6_files/figure-html/unnamed-chunk-28-1.png" width="35%" /&gt;
+
+---
+background-image: url(https://github.com/rstudio/hex-stickers/raw/master/PNG/ggplot2.png)
+background-position: 95% 1%
+background-size: 10%
+
+## Data Viz: _ggplot2_
+
+
+```r
+ggplot(millas, aes(cilindrada, autopista)) +
+  geom_point() +
+  geom_smooth()
+```
+
+&lt;img src="clase6_files/figure-html/unnamed-chunk-29-1.png" width="35%" /&gt;
+
+&gt; **Se pueden elidir los nombres de parámetros**
+--
+
+**<i class="fas  fa-link "></i>** Más detalle en esta [Intro a ggplot]("https://es.r4ds.hadley.nz/visualización-de-datos.html")
+
+
+
+---
+
+background-image: url(https://github.com/rstudio/hex-stickers/raw/master/PNG/ggplot2.png)
+background-position: 95% 15%
+background-size: 10%
+
+
+## _Dibujando por capas_: **_theme_**
+
+
+&lt;img src="../fig/ggplot_layers.png" width="35%" /&gt;
+
+---
+
+## Data Viz: _ggplot2_: **_theme()_**
+
+
+```r
+ggplot(millas, aes(cilindrada, autopista)) +
+  geom_point() +
+  geom_point(data = millas %&gt;% 
+               filter(fabricante == "audi"), color = "blue", size =3) +
+  geom_smooth(se = FALSE) +
+  labs(title = "Performance de los AUDI",  subtitle = "Un gráfico del TuQmano", 
+        y = "Etiqueta Y",  x = "Etiqueta X", 
+        caption = "FUENTE: {datos} 'R Para Ciencia de Datos'") +
+* ggthemes::theme_wsj()
+```
+
+&lt;img src="clase6_files/figure-html/unnamed-chunk-31-1.png" width="35%" /&gt;
+
+---
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"highlightSpans": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
