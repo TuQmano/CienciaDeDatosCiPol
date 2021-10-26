@@ -1,0 +1,108 @@
+
+# Machete de Atajos
+
+Atajo para la pipa 
+
+**Atajo para la pipa  %>%**
+
+_Atajo para la pipa_
+
+
+```{r}
+
+library(tidyverse)
+
+
+```
+
+
+## Mi informe
+
+En este trabajo voy a hacer .....
+
+
+Para ello voy a importar los datos
+
+```{r}
+
+  datos <- read_csv("../data/arg_presi_gral2003.csv")
+
+datos
+
+```
+
+
+### Introduccion a `{purrr}`
+
+
+(1) Vamos a descargar datos con `{electorAr}`
+
+```{r}
+
+
+library(electorAr)
+
+datos <- get_election_data(district = "arg", category = "presi", round = "gral", year = 2003) %>% 
+    get_names()
+
+datos
+
+
+
+```
+
+
+Voy a agrupar los datos por provincias
+
+```{r}
+
+
+
+nested <- datos %>% 
+  group_by(name_prov) %>% 
+  nest()
+
+
+```
+
+Ahora voy a a escribir un archivo `.csv` para cada provincia (grupo dentro de `nested`)
+
+```{r}
+
+
+nested %>% 
+  pwalk( ~ write_csv(x = .y,
+                     file = glue::glue("{here::here('clases', 'data', 'multiple_files')}/{.x}.csv")))
+
+
+
+```
+
+#### purrr para calcular_pct
+
+
+```{r}
+calcular_pct <- function(data){
+  round(data/sum(data)*100,1)
+}
+
+
+
+```
+
+
+
+
+```{r}
+test <- datos %>% 
+  nest() %>% 
+  mutate(datos = map(data, 
+                      .f =  ~ calcular_pct(data = .x$votos)))
+
+
+
+
+
+```
+
+

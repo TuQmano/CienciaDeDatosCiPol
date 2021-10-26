@@ -31,7 +31,9 @@ navbar:
       - text: "Clase 5"
         href: https://tuqmano.github.io/CienciaDeDatosCiPol/clases/clase5.html
       - text: "Clase 6"
-        href: https://tuqmano.github.io/CienciaDeDatosCiPol/clases/clase6.html  
+        href: https://tuqmano.github.io/CienciaDeDatosCiPol/clases/clase6.html 
+      - text: "Clase 7"
+        href: https://tuqmano.github.io/CienciaDeDatosCiPol/clases/clase7.html
 
   right:
     - text: "Ediciones Anteriores"
