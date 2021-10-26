@@ -510,6 +510,207 @@ ggplot(millas, aes(cilindrada, autopista)) +
 ```
 
 &lt;img src="clase7_files/figure-html/unnamed-chunk-18-1.png" width="35%" /&gt;
+
+---
+
+class:  middle, center, inverse
+
+
+### Data Viz (II)
+
+#### Las muchas capas de `ggplot2 +` extensiones
+
+
+
+---
+
+class:  middle
+background-image: url(https://user-images.githubusercontent.com/520851/34887433-ce1d130e-f7c6-11e7-83fc-d60ad4fae6bd.gif)
+background-position: 95% 5%
+background-size: 10%
+
+
+### GEOM integrado
+.pull-left[
+
+```r
+library(tidyverse)
+p &lt;- geoAr::get_geo(geo = "TUCUMAN") %&gt;% 
+   ggplot2::ggplot() + #  SETTING color
+*  ggplot2::geom_sf(color = "blue")
+p   
+```
+
+&lt;img src="clase7_files/figure-html/unnamed-chunk-19-1.png" width="504" /&gt;
+
+]
+
+.pull-right[
+
+
+&lt;img src="https://github.com/rstudio/hex-stickers/raw/master/PNG/ggplot2.png" width="20%" /&gt;
+
+
+]
+
+---
+
+background-image: url(https://user-images.githubusercontent.com/520851/34887433-ce1d130e-f7c6-11e7-83fc-d60ad4fae6bd.gif)
+background-position: 95% 5%
+background-size: 10%
+
+
+
+## `aes()`
+
+### **Estéticas como capas**
+
+
+
+
+```r
+p + 
+* aes(fill = p$data$coddepto_censo)
+```
+
+&lt;img src="clase7_files/figure-html/unnamed-chunk-21-1.png" width="504" /&gt;
+
+* Extraemos valores de variable desde el objeto `ggplot2`
+
+
+---
+class: inverse, center, middle
+
+
+# Galería de extensiones a `ggplot2` 
+
+&lt;https://exts.ggplot2.tidyverse.org/gallery/&gt; 
+
+
+
+---
+
+background-image: url(https://patchwork.data-imaginist.com/reference/figures/logo.png) 
+background-position: 95% 5%
+background-size: 10%
+
+# Composición de gráficos
+
+[<i class="fas  fa-link "></i>`{patchwork}`](https://patchwork.data-imaginist.com/)
+
+
+
+```r
+library(ggplot2)
+*library(patchwork)
+p1 &lt;- ggplot(mtcars) + geom_point(aes(mpg, disp))
+p2 &lt;- ggplot(mtcars) + geom_boxplot(aes(gear, disp, group = gear))
+*p1 + p2
+```
+
+&lt;img src="clase7_files/figure-html/unnamed-chunk-22-1.png" width="504" /&gt;
+
+
+---
+
+background-image: url(https://patchwork.data-imaginist.com/reference/figures/logo.png) 
+background-position: 95% 5%
+background-size: 10%
+
+
+# Composición de gráficos
+
+.pull-left[
+[<i class="fas  fa-link "></i>`{patchwork}`](https://patchwork.data-imaginist.com/)
+
+
+
+```r
+p3 &lt;- ggplot(mtcars) + geom_smooth(aes(disp, qsec))
+p4 &lt;- ggplot(mtcars) + geom_bar(aes(carb))
+*(p1 | p2 | p3) /
+*     p4
+```
+
+&lt;img src="clase7_files/figure-html/unnamed-chunk-23-1.png" width="504" /&gt;
+
+]
+--
+ .pull-right[
+### Alternativa 
+
+
+&lt;img src="https://wilkelab.org/cowplot/reference/figures/logo.png" width="20%" /&gt;
+
+[<i class="fas  fa-link "></i>`{cowplot}`](https://wilkelab.org/cowplot/index.html)
+
+]
+
+---
+
+background-image: url(https://wilkelab.org/cowplot/reference/figures/logo.png) 
+background-position: 95% 3%
+background-size: 10%
+
+
+# Composición de gráficos
+
+
+
+
+
+
+
+```r
+library(cowplot)
+logo_file &lt;- "https://github.com/electorArg/polAr/blob/master/hex/hex-polAr.png?raw=true"
+ggdraw(cow_plot) +
+  draw_label(label = "HECHO CON", color = "blue", size = 40, angle = 45 , alpha = .5) +
+  draw_image(logo_file, x = 1, y = 1.1, hjust = 1, vjust = 1, width = 0.15)
+```
+
+&lt;img src="clase7_files/figure-html/unnamed-chunk-26-1.png" width="504" /&gt;
+
+
+---
+
+background-image: url(https://dreamrs.github.io/esquisse/reference/figures/esquisse.gif) 
+background-size: 70%
+
+
+# [<i class="fas  fa-link "></i>`{esquisse}`](https://dreamrs.github.io/esquisse/)
+
+
+---
+class: inverse 
+
+## <i class="fas  fa-book "></i> Referencias
+
+### Themes
+
+* `{ggthemes}` &lt;https://jrnold.github.io/ggthemes/index.html&gt;
+
+
+* `{hrbthemes}` &lt;https://cinc.rud.is/web/packages/hrbrthemes/&gt;
+
+--
+
+### Fonts
+
+* `{extrafont}` &lt;https://github.com/wch/extrafont&gt;
+* `{ggtext}` &lt;https://wilkelab.org/ggtext/&gt;
+
+--
+
+### `+` 
+
+
+* `{plotly}` &lt;https://plotly-r.com/&gt;
+
+* **The `R` Graph Gallery** &lt;https://www.r-graph-gallery.com/&gt;
+
+
+
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>

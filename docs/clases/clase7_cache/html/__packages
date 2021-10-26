@@ -12,3 +12,6 @@ tibble
 stringr
 forcats
 datos
+patchwork
+cowplot
+polAr

@@ -6,7 +6,7 @@
       "description": "Lecturas recomendadas y materiales de apoyo\n",
       "author": [],
       "contents": "\r\nPRINCIPAL\r\nFundamentos: An Intro to R, Collin Fay.\r\nProgramación: R para Ciencia de Datos (Traducción de R for Data Science), Garrett Grolemund, Hadley Wickham.\r\nVisualización: ggplot2: Elegant Graphics for Data Analysis, Hadley Wickham.\r\nCONSULTA\r\nGENERAL\r\nAnalizaR Datos Políticos, Francisco Urdinez y Andrés Cruz Labrín (Editores).\r\nCiencia de Datos para Gente Sociable, Antonio Vazquez Brust.\r\nCiencia de datos para curiosos, Martín Montané.\r\nDATA VIZ\r\nData Visualizaction: A Practival Introduction, Kieran Healey.\r\nFundamentals of Data Visualization, Claus Wilke.\r\nSOFTWARE / PROGRAMACIÓN\r\nWhat They Forgot to Teach You About R, Jennifer Bryan & Jim Hester.\r\nHappy Git and GitHub for the useR, Jennifer Bryan, STAT 545 TAs & Jim Hester.\r\nA Handbook for Teaching and Learning with R and RStudio, Desirée De Leon & Alison Hill.\r\nGEO\r\nSpatial Data Science (with applications in R), Edzer Pebesma y Roger Bivand.\r\nHerramientas de análisis espacial en R, Martín Montané.\r\nCOLECCION\r\nBig Book of R: Your last-ever bookmark\r\n\r\n\r\n\r\n",
-      "last_modified": "2021-10-26T18:59:48-03:00"
+      "last_modified": "2021-10-26T19:11:56-03:00"
     },
     {
       "path": "datos.html",
@@ -14,7 +14,7 @@
       "description": "Colección de paquetes de R que facilitan el acceso a datos\n",
       "author": [],
       "contents": "\r\nDATOS\r\nuniverso polAr\r\n\r\n\r\n\r\n{opinAr} brinda herramientas que facilitan el acceso y el trabajo con datos de opinión del Índice de Confianza en el Gobierno (ICG), relevados por la Universidad Torcuato Di Tella.\r\n{geoAr} brinda herramientas que facilitan el acceso y el trabajo con datos espaciales de Argentina desde R.\r\n{legislAr} está pensado para facilitar la exploración de datos compartidos por Andy Tow en su proyecto La Decada Votada en cuya documentación se detallan las bases de datos disponibilizadas, sus campos y descripciones.\r\n{discursAr} es una herramientas para el análisis de discursos políticos de Arrgentina usando R\r\n{electorAr} brinda herramientas que facilitan el acceso y el trabajo con datos electorales de Argentina desde R.\r\nInstalar paquetes del polArverse desde github\r\nEjemplo para instalar todos juntos\r\n\r\n\r\n# devtools::install_github(\"politicaargentina/polArverse\")\r\n\r\nlibrary(polArverse)\r\n#> -- Attaching packages ------------------------------------- polArverse0.0.1.0 --\r\n#> v geoAr     0.0.1.0     v electorAr 0.0.1.0\r\n#> v legislAr  0.0.1.0     v discursAr 0.0.1.0\r\n#> v opinAr    0.0.1\r\n\r\n\r\n\r\nInstalar paquetes desde tuqmano.r-universe.dev\r\n\r\n\r\n# Habilitar el tuqmano universe (además de CRAN)\r\n\r\noptions(repos = c(\r\n    tuqmano = 'https://tuqmano.r-universe.dev',\r\n    CRAN = 'https://cloud.r-project.org'))\r\n\r\n# Instalar un paquete de la forma habitual\r\ninstall.packages('geoAr')\r\n\r\n\r\n\r\nOTROS\r\n{politicxsentwitteR} sirve para descargar data en tiempo real de la aplicación de “Políticos/as on Twitter” usando R.\r\nSocio Económicos\r\n{eph}: Caja de Herramientas para el procesamiento de la Encuesta Permanente de Hogares.\r\n{transporteAR}: Base de datos de subsidios y compensasiones al transporte público de la República Argentina.\r\n{PortalHacienda-CRAN}: acceso a la API del Portal del Ministerio de Hacienda de Argentina.\r\nDD.HH.\r\n{presentes}: poner a disposición la información oficial sobre víctimas del terrorismo de estado en Argentina.\r\nGEO\r\n{geofaceteAR}: Códigos geográficos de Argentina y grillas para visulaización de datos como si fueran mapas (una versión ampliada del trabajo con información geogrÃ¡fica fue incorporada en {geoAr}).\r\n{gegorefar}: paquete de R que implementa un wrapper para la API georef-ar. La API del Servicio de Normalización de Datos Geográficos, permite normalizar y codificar los nombres de unidades territoriales de la Argentina (provincias, departamentos, municipios y localidades) y de sus calles, así como ubicar coordenadas dentro de ellas.\r\n{RUMBA}: Un conjunto de herramientas para analizar la Región Urbana Metropolitana de Buenos Aires usando R.\r\nR para Ciencia de Datos - Comunidad Ñ\r\n{DATOS}: provee la traducción al español de conjuntos de datos en inglés originalmente disponibles en otros paquetes de R.\r\n#DatosDeMiercoles: Datos de miércoles es el primo latinoamericano de #tidytuesday, un proyecto semanal de datos organizado por la comunidad de R.\r\n\r\n\r\n\r\n",
-      "last_modified": "2021-10-26T18:59:50-03:00"
+      "last_modified": "2021-10-26T19:11:59-03:00"
     },
     {
       "path": "index.html",
@@ -27,7 +27,7 @@
         }
       ],
       "contents": "\r\nEn su introducción a los conceptos básicos de las ciencias sociales, Jon Elster utilizó la metáfora de 1 para fundamentar la importancia de entender los engranajes detrás de los fenómenos sociales. Partiendo de esta idea, el taller pretende introducir un conjunto de herramientas para la investigación y el análisis de fenómenos políticos que podrían ser pensados como los lubricantes de las tuercas y tornillos.\r\nUtilizaremos el entorno de RStudio - para el manejo de datos, análisis estadístico e ilustración de resultados-, RMarkdown para la presentación de documentos y una variedad de recursos de fácil acceso para mejorar la comunicación del trabajo académico. Tener conocimientos básicos de estadística y comprensión lectora en inglés será de gran ayuda. El curso está pensado para que los participantes tengan una experiencia práctica a través del desarrollo del programa.\r\n\r\nNuts and Bolts for the Social Science, Cambridge University Press, 1989 / Tuercas y Tornillos:una introducción a los conceptos básicos de las ciencias sociales; Gedisa, 1990.↩︎\r\n",
-      "last_modified": "2021-10-26T18:59:51-03:00"
+      "last_modified": "2021-10-26T19:12:01-03:00"
     },
     {
       "path": "programa.html",
@@ -35,7 +35,7 @@
       "description": "Listado de temas a tratar a lo largo del curso\n",
       "author": [],
       "contents": "\r\nSesión 1: Presentación\r\nSesión 2: Introducción\r\nConociendo R + RStudio\r\nR base y el suite Tidyverse\r\nOrganizar el trabajo (.Rproj, here y git)\r\nReproducibilidad y Comunicación (.R y Rmd)\r\nSesión 3: Domar los datos I\r\nLos principales paquetes y sus verbos para:\r\nleer datos (readr, heaven, readxl, googlesheets4, etc)\r\nlimpiar datos (tidyr, janitor, tibble)\r\ntransformar datos (dplyr)\r\nHerramientas auxiliares para mejorar el flujo del código:\r\nla pipa de magrittr (%>%) para encadenar y glue para facilitar la concatenación.\r\nSesión 4: Domar los datos II\r\n+dplyr\r\nAmpliando la caja de herramientas:\r\nlubridate para trabajar el tiempo\r\nforcats para datos categóricos (factors)\r\nstringrpara datos de texto\r\nSesión 5: Programación (intro)\r\nFunciones para no repetirse uno mismo\r\nEscribir funciones\r\nProgramación funcional (Introducción a purrr )\r\nSesión 6: Data Viz I\r\nLa Gramática de los Gráficos\r\nIntroducción a ggplot2\r\nSesión 7: Data Viz II\r\nLas muchas capas de ggplot2\r\nExtensiones: patchwork, ggforce, ggparliament, entre otros.\r\nSesión 8: Data Viz III\r\nDistintas formas de representar información geográfica:\r\nsf: para mapas estáticos\r\nleaflet: para mapas interactivos\r\ngeofacetAr: para grillas como si fueran mapas\r\nSesión 9: Tópicos I\r\nDescargar datos de la web: ejemplos aplicados con la API de Twitter vía rtweet y scraping con rvest\r\nSesión 10: Tópicos II\r\nAnálisis Cuantitativo de Texto: una primera aproximación a tidytext, tm , topicmodels y otros.\r\nSesión 11: Tópicos III - Modelado\r\n\r\n\r\n\r\n",
-      "last_modified": "2021-10-26T18:59:53-03:00"
+      "last_modified": "2021-10-26T19:12:03-03:00"
     },
     {
       "path": "software.html",
@@ -43,7 +43,7 @@
       "description": "Herramientas y programas\n",
       "author": [],
       "contents": "\r\nConfigurar\r\nSlack - Espacio de trabajo\r\nR - CRAN (The Comprehensive R Archive Network)\r\nRStudio IDE (Integrated Development Environment)\r\n.git & Github - Control de versiones + DEV\r\n\r\n\r\n\r\n",
-      "last_modified": "2021-10-26T18:59:54-03:00"
+      "last_modified": "2021-10-26T19:12:05-03:00"
     }
   ],
   "collections": []
